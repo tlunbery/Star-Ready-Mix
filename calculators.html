@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+<meta name="description" content="description"/>
+<meta name="keywords" content="keywords"/> 
+<meta name="author" content="author"/> 
+
+<title>Star Ready Mix: Calculators</title>
+</head>
+
+<body>
+
+			<h1>Calculators</h1>
+			
+			
+			<script LANGUAGE="JavaScript">
+
+function calcConc(form) {
+    var concAmt = 0;
+    for (var i = 1; i <= 3; i++) {
+       var parsecheck = "" + parseFloat(form.elements[i].value);
+       if (parseFloat(form.elements[i].value) < 0 ||
+           parseFloat(form.elements[i].value) == 0 ||
+           parsecheck == "NaN") {
+          window.alert("Please enter a positive number in each of the " +
+                       "three input fields.");}
+          return false;
+       
+    }
+    if (form.elements[5].checked == true) {
+       concAmt = form.elements[1].value * form.elements[2].value *
+                 (form.elements[3].value / 12.0) / 27;}
+    else {
+       concAmt = form.elements[1].value * form.elements[2].value *
+                 form.elements[3].value / 27;
+    form.elements[7].value = formatvalue(concAmt,7);}
+    return true;
+}
+
+/*
+function formatvalue(input, rsize) {
+   var invalid = "**************************";
+   var nines = "999999999999999999999999";
+   var strin = "" + input;
+   var fltin = parseFloat(strin);
+   if (strin.indexOf("e") != -1 ||
+       fltin > parseFloat(nines.substring(0,rsize)+".4"))
+      return invalid.substring(0, rsize);
+   if (strin.length <= rsize) return strin;
+   var rounded = "" + (fltin + 
+      (fltin - parseFloat(strin.substring(0, rsize))));
+   return rounded.substring(0, rsize);
+}
+*/
+</script>
+
+
+
+
+<p>
+		The Concrete Volume Calculator is for Driveways, Patios, etc... 
+		</p><p>
+		The Column Calculator is for cassions, piers, etc...
+		</p><p>
+		<strong>Concrete Volume</strong><br />
+		To use the Concrete Volume Calculator:
+		</p><p>
+		</p><ul>
+		<li>Enter the width, Length, and Thickness of your pour 
+		</li><li>Select feet or inches as your measurement scale 
+		</li><li>Click on the Calculate button.
+		</li></ul>
+		<p>
+		The calculator will Estimate the total Cubic Yards of concrete required.
+		</p><p>
+		</p>
+		
+		<form>
+		<table border="2" width="500" cellpadding="0" cellspacing="0">
+
+			<tr>
+				<td ></td>
+				<td align="center" class="body">Width (in Feet)</td>
+				<td></td>
+				<td align="center" class="body">Length (in Feet)</td>
+				<td ></td>
+				<td align="center" class="body">Height (Thickness)</td>
+				<td ></td>
+				<td align="center" class="body"></td>
+				<td ></td>
+			</tr>
+			
+			<tr>
+				<td ></td>
+				<td align="center" class="body"><input TYPE="TEXT" NAME="val1" SIZE="15" /></td>
+				<td ></td>
+				<td align="center" class="body"><input TYPE="TEXT" NAME="val2" SIZE="15" /></td>
+				<td ></td>
+				<td align="center" class="body"><input TYPE="TEXT" NAME="val3" SIZE="15" /></td>
+				<td ></td>
+				<td align="center" class="body"><input TYPE="button" VALUE="Calculate" onclick="calcConc(this.form)" /></td>
+				<td ></td>
+			</tr>
+			
+			<tr>
+				<td ></td>
+				<td class="body">&nbsp;</td>
+				<td ></td>
+				<td class="body">&nbsp;</td>
+				<td ></td>
+				<td class="body">
+				<input TYPE="radio" NAME="InchesFeet" VALUE="inches" CHECKED />Inches<br />
+    			<input TYPE="radio" NAME="InchesFeet" VALUE="feet" />Feet
+				</td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+			</tr>
+
+			<tr>
+				<td ></td>
+				<td COLSPAN="5" align="center" class="body">Total Cubic Yards Required:</td>
+				<td ></td>
+				<td align="center" class="body"><input TYPE="TEXT" NAME="val4" SIZE="15" /></td>
+				<td ></td>
+			</tr>
+			
+		</table>
+		</form>
+
+			
+</body>
+
+</html>
+
+
